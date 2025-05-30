@@ -1,0 +1,7 @@
+flask>=2.0.0
+bandit>=1.7.0
+flask-wtf>=1.0.0
+flask-limiter>=2.0.0
+bleach>=4.0.0
+werkzeug>=2.0.0
+wtforms>=3.0.0

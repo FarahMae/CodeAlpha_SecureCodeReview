@@ -1,0 +1,391 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>CodeAlpha Security Analysis Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                .header { background: #2c3e50; color: white; padding: 20px; border-radius: 5px; }
+                .summary { background: #ecf0f1; padding: 15px; margin: 20px 0; border-radius: 5px; }
+                .critical { color: #e74c3c; font-weight: bold; }
+                .high { color: #e67e22; font-weight: bold; }
+                .medium { color: #f39c12; font-weight: bold; }
+                .low { color: #27ae60; font-weight: bold; }
+                .vulnerability { border: 1px solid #ddd; margin: 10px 0; padding: 15px; border-radius: 5px; }
+                .code { background: #f8f9fa; padding: 10px; border-left: 4px solid #007bff; margin: 10px 0; }
+                table { border-collapse: collapse; width: 100%; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>🛡️ CodeAlpha Security Analysis Report</h1>
+                <p>Task 3: Secure Coding Review</p>
+                <p>Generated: 2025-05-30 15:35:16</p>
+            </div>
+            
+            <div class="summary">
+                <h2>📊 Executive Summary</h2>
+                <p>Total vulnerabilities found: <strong>28</strong></p>
+                <ul>
+                    <li class="critical">Critical: 6</li>
+                    <li class="high">High: 18</li>
+                    <li class="medium">Medium: 4</li>
+                    <li class="low">Low: 0</li>
+                </ul>
+            </div>
+            
+            <h2>🔍 Detailed Findings</h2>
+        
+            <div class="vulnerability">
+                <h3 class="critical">#1 Sql Injection (Critical)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 86</p>
+                <p><strong>Description:</strong> SQL Injection vulnerability allows attackers to execute arbitrary SQL commands</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use parameterized queries or prepared statements</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="critical">#2 Sql Injection (Critical)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 104</p>
+                <p><strong>Description:</strong> SQL Injection vulnerability allows attackers to execute arbitrary SQL commands</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>query = f"SELECT username, email FROM users WHERE username LIKE '%{search_term}%'"</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use parameterized queries or prepared statements</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="critical">#3 Sql Injection (Critical)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 122</p>
+                <p><strong>Description:</strong> SQL Injection vulnerability allows attackers to execute arbitrary SQL commands</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>query = f"SELECT * FROM posts WHERE id = {post_id}"</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use parameterized queries or prepared statements</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#4 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 172</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><p style="color: red;">''' + error + '''</p></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#5 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 210</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><p>Welcome back, ''' + username + '''!</p></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#6 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 211</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><p>Role: ''' + session.get('role', 'user') + '''</p></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#7 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 237</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><p>Search results for: ''' + search_term + '''</p></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#8 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 256</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><h2>''' + str(post[2]) + '''</h2></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#9 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 257</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><p>''' + str(post[3]) + '''</p></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#10 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 258</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><p>Post ID: ''' + str(post[0]) + '''</p></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#11 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 286</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><p>Result: ''' + result + '''</p></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#12 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 287</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><p>Try: 2+2 or __import__('os').system('whoami')</p></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#13 Xss (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 314</p>
+                <p><strong>Description:</strong> Cross-Site Scripting allows attackers to inject malicious scripts</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code><pre>''' + content + '''</pre></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use template engines with auto-escaping, validate and sanitize input</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="critical">#14 Command Injection (Critical)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 273</p>
+                <p><strong>Description:</strong> Command injection allows attackers to execute system commands</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code># VULNERABILITY 10: Command Injection via eval()</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Avoid eval/exec, use safe alternatives and input validation</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="critical">#15 Command Injection (Critical)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 274</p>
+                <p><strong>Description:</strong> Command injection allows attackers to execute system commands</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>result = str(eval(expression))  # NEVER use eval() with user input!</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Avoid eval/exec, use safe alternatives and input validation</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="critical">#16 Command Injection (Critical)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 274</p>
+                <p><strong>Description:</strong> Command injection allows attackers to execute system commands</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>result = str(eval(expression))  # NEVER use eval() with user input!</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Avoid eval/exec, use safe alternatives and input validation</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#17 Hardcoded Secrets (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 39</p>
+                <p><strong>Description:</strong> Hardcoded credentials expose sensitive information</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>ADMIN_PASSWORD = "admin123"  # Hardcoded credentials</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use environment variables or secure configuration management</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#18 Hardcoded Secrets (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 86</p>
+                <p><strong>Description:</strong> Hardcoded credentials expose sensitive information</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use environment variables or secure configuration management</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#19 Hardcoded Secrets (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 154</p>
+                <p><strong>Description:</strong> Hardcoded credentials expose sensitive information</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>password = request.form.get('password', '')</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use environment variables or secure configuration management</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#20 Hardcoded Secrets (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 175</p>
+                <p><strong>Description:</strong> Hardcoded credentials expose sensitive information</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>Password: <input type="password" name="password"><br></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use environment variables or secure configuration management</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#21 Hardcoded Secrets (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 189</p>
+                <p><strong>Description:</strong> Hardcoded credentials expose sensitive information</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>Password: <input type="password" name="password"><br><br></code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use environment variables or secure configuration management</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#22 Hardcoded Secrets (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 35</p>
+                <p><strong>Description:</strong> Hardcoded credentials expose sensitive information</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>app.secret_key = "supersecretkey123"  # Never hardcode secrets!</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Use environment variables or secure configuration management</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#23 Path Traversal (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 301</p>
+                <p><strong>Description:</strong> Path traversal allows access to files outside intended directory</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>with open(filename, 'r') as f:  # No path validation!</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Validate file paths, use whitelist of allowed files</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="medium">#24 Debug Mode (Medium)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 346</p>
+                <p><strong>Description:</strong> Debug mode exposes sensitive application information</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>app.run(debug=True, host='0.0.0.0', port=5000)</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Disable debug mode in production environments</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="medium">#25 Debug Mode (Medium)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 346</p>
+                <p><strong>Description:</strong> Debug mode exposes sensitive application information</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>app.run(debug=True, host='0.0.0.0', port=5000)</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Disable debug mode in production environments</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="high">#26 Hardcoded Secret Key (High)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 1</p>
+                <p><strong>Description:</strong> Flask security issue: hardcoded_secret_key</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>See file for details</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Follow Flask security best practices</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="medium">#27 Debug Enabled (Medium)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 1</p>
+                <p><strong>Description:</strong> Flask security issue: debug_enabled</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>See file for details</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Follow Flask security best practices</p>
+            </div>
+            
+            <div class="vulnerability">
+                <h3 class="medium">#28 Missing Csrf (Medium)</h3>
+                <p><strong>File:</strong> ../vulnerable_apps/python_webapp/app.py</p>
+                <p><strong>Line:</strong> 1</p>
+                <p><strong>Description:</strong> Flask security issue: missing_csrf</p>
+                <div class="code">
+                    <strong>Vulnerable Code:</strong><br>
+                    <code>See file for details</code>
+                </div>
+                <p><strong>🔧 Remediation:</strong> Follow Flask security best practices</p>
+            </div>
+            
+            <div class="summary">
+                <h2>📋 Recommendations</h2>
+                <ol>
+                    <li>Immediately address all Critical and High severity vulnerabilities</li>
+                    <li>Implement input validation and sanitization throughout the application</li>
+                    <li>Use parameterized queries to prevent SQL injection</li>
+                    <li>Enable security headers and CSRF protection</li>
+                    <li>Remove hardcoded credentials and use secure configuration management</li>
+                    <li>Disable debug mode in production</li>
+                    <li>Implement comprehensive security testing in CI/CD pipeline</li>
+                </ol>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,279 @@
+[
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "sql_injection",
+    "line": 86,
+    "code": "query = f\"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'\"",
+    "pattern": "query.*=.*f\".*SELECT.*{",
+    "severity": "Critical",
+    "description": "SQL Injection vulnerability allows attackers to execute arbitrary SQL commands",
+    "remediation": "Use parameterized queries or prepared statements"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "sql_injection",
+    "line": 104,
+    "code": "query = f\"SELECT username, email FROM users WHERE username LIKE '%{search_term}%'\"",
+    "pattern": "query.*=.*f\".*SELECT.*{",
+    "severity": "Critical",
+    "description": "SQL Injection vulnerability allows attackers to execute arbitrary SQL commands",
+    "remediation": "Use parameterized queries or prepared statements"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "sql_injection",
+    "line": 122,
+    "code": "query = f\"SELECT * FROM posts WHERE id = {post_id}\"",
+    "pattern": "query.*=.*f\".*SELECT.*{",
+    "severity": "Critical",
+    "description": "SQL Injection vulnerability allows attackers to execute arbitrary SQL commands",
+    "remediation": "Use parameterized queries or prepared statements"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 172,
+    "code": "<p style=\"color: red;\">''' + error + '''</p>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 210,
+    "code": "<p>Welcome back, ''' + username + '''!</p>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 211,
+    "code": "<p>Role: ''' + session.get('role', 'user') + '''</p>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 237,
+    "code": "<p>Search results for: ''' + search_term + '''</p>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 256,
+    "code": "<h2>''' + str(post[2]) + '''</h2>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 257,
+    "code": "<p>''' + str(post[3]) + '''</p>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 258,
+    "code": "<p>Post ID: ''' + str(post[0]) + '''</p>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 286,
+    "code": "<p>Result: ''' + result + '''</p>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 287,
+    "code": "<p>Try: 2+2 or __import__('os').system('whoami')</p>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "xss",
+    "line": 314,
+    "code": "<pre>''' + content + '''</pre>",
+    "pattern": "<.*>.*\\+.*<.*>",
+    "severity": "High",
+    "description": "Cross-Site Scripting allows attackers to inject malicious scripts",
+    "remediation": "Use template engines with auto-escaping, validate and sanitize input"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "command_injection",
+    "line": 273,
+    "code": "# VULNERABILITY 10: Command Injection via eval()",
+    "pattern": "eval\\(",
+    "severity": "Critical",
+    "description": "Command injection allows attackers to execute system commands",
+    "remediation": "Avoid eval/exec, use safe alternatives and input validation"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "command_injection",
+    "line": 274,
+    "code": "result = str(eval(expression))  # NEVER use eval() with user input!",
+    "pattern": "eval\\(",
+    "severity": "Critical",
+    "description": "Command injection allows attackers to execute system commands",
+    "remediation": "Avoid eval/exec, use safe alternatives and input validation"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "command_injection",
+    "line": 274,
+    "code": "result = str(eval(expression))  # NEVER use eval() with user input!",
+    "pattern": "eval\\(",
+    "severity": "Critical",
+    "description": "Command injection allows attackers to execute system commands",
+    "remediation": "Avoid eval/exec, use safe alternatives and input validation"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "hardcoded_secrets",
+    "line": 39,
+    "code": "ADMIN_PASSWORD = \"admin123\"  # Hardcoded credentials",
+    "pattern": "password.*=.*[\"\\'].*[\"\\']",
+    "severity": "High",
+    "description": "Hardcoded credentials expose sensitive information",
+    "remediation": "Use environment variables or secure configuration management"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "hardcoded_secrets",
+    "line": 86,
+    "code": "query = f\"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'\"",
+    "pattern": "password.*=.*[\"\\'].*[\"\\']",
+    "severity": "High",
+    "description": "Hardcoded credentials expose sensitive information",
+    "remediation": "Use environment variables or secure configuration management"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "hardcoded_secrets",
+    "line": 154,
+    "code": "password = request.form.get('password', '')",
+    "pattern": "password.*=.*[\"\\'].*[\"\\']",
+    "severity": "High",
+    "description": "Hardcoded credentials expose sensitive information",
+    "remediation": "Use environment variables or secure configuration management"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "hardcoded_secrets",
+    "line": 175,
+    "code": "Password: <input type=\"password\" name=\"password\"><br>",
+    "pattern": "password.*=.*[\"\\'].*[\"\\']",
+    "severity": "High",
+    "description": "Hardcoded credentials expose sensitive information",
+    "remediation": "Use environment variables or secure configuration management"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "hardcoded_secrets",
+    "line": 189,
+    "code": "Password: <input type=\"password\" name=\"password\"><br><br>",
+    "pattern": "password.*=.*[\"\\'].*[\"\\']",
+    "severity": "High",
+    "description": "Hardcoded credentials expose sensitive information",
+    "remediation": "Use environment variables or secure configuration management"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "hardcoded_secrets",
+    "line": 35,
+    "code": "app.secret_key = \"supersecretkey123\"  # Never hardcode secrets!",
+    "pattern": "secret.*=.*[\"\\'].*[\"\\']",
+    "severity": "High",
+    "description": "Hardcoded credentials expose sensitive information",
+    "remediation": "Use environment variables or secure configuration management"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "path_traversal",
+    "line": 301,
+    "code": "with open(filename, 'r') as f:  # No path validation!",
+    "pattern": "open\\(.*filename.*\\)",
+    "severity": "High",
+    "description": "Path traversal allows access to files outside intended directory",
+    "remediation": "Validate file paths, use whitelist of allowed files"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "debug_mode",
+    "line": 346,
+    "code": "app.run(debug=True, host='0.0.0.0', port=5000)",
+    "pattern": "debug.*=.*True",
+    "severity": "Medium",
+    "description": "Debug mode exposes sensitive application information",
+    "remediation": "Disable debug mode in production environments"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "debug_mode",
+    "line": 346,
+    "code": "app.run(debug=True, host='0.0.0.0', port=5000)",
+    "pattern": "app\\.run\\(.*debug.*True",
+    "severity": "Medium",
+    "description": "Debug mode exposes sensitive application information",
+    "remediation": "Disable debug mode in production environments"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "hardcoded_secret_key",
+    "severity": "High",
+    "description": "Flask security issue: hardcoded_secret_key",
+    "line": 1,
+    "code": "See file for details",
+    "remediation": "Follow Flask security best practices"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "debug_enabled",
+    "severity": "Medium",
+    "description": "Flask security issue: debug_enabled",
+    "line": 1,
+    "code": "See file for details",
+    "remediation": "Follow Flask security best practices"
+  },
+  {
+    "file": "../vulnerable_apps/python_webapp/app.py",
+    "type": "missing_csrf",
+    "severity": "Medium",
+    "description": "Flask security issue: missing_csrf",
+    "line": 1,
+    "code": "See file for details",
+    "remediation": "Follow Flask security best practices"
+  }
+]
