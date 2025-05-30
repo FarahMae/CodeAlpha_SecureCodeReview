@@ -8,11 +8,11 @@
 [![OWASP](https://img.shields.io/badge/OWASP-Top%2010-critical.svg)](https://owasp.org/www-project-top-ten/)
 [![Status](https://img.shields.io/badge/status-completed-brightgreen.svg)](https://github.com/FarahMae/CodeAlpha_SecureCodeReview)
 
-## 🔒 Cybersecurity Internship - Task 3: Secure Coding Review
+## Cybersecurity Internship - Task 3: Secure Coding Review
 
 A comprehensive security analysis project demonstrating professional vulnerability assessment, code review methodologies, and secure development practices. This project showcases the identification and remediation of critical security vulnerabilities in web applications.
 
-### 🎯 Project Overview
+### Project Overview
 
 **Internship:** CodeAlpha Cybersecurity Program  
 **Task:** Task 3 - Secure Coding Review  
@@ -21,7 +21,7 @@ A comprehensive security analysis project demonstrating professional vulnerabili
 
 ---
 
-## 🏆 **Key Achievements**
+## **Key Achievements**
 
 ![OWASP Coverage](https://img.shields.io/badge/OWASP%20Top%2010-100%25%20covered-success.svg?style=for-the-badge)
 ![Vulnerabilities Found](https://img.shields.io/badge/vulnerabilities-13%2B%20identified-critical.svg?style=for-the-badge)
@@ -30,7 +30,7 @@ A comprehensive security analysis project demonstrating professional vulnerabili
 
 ---
 
-## 🔍 **What This Project Demonstrates**
+##  **What This Project Demonstrates**
 
 ### **Professional Security Assessment Skills**
 - **Static Code Analysis** using industry-standard tools
@@ -54,7 +54,7 @@ A comprehensive security analysis project demonstrating professional vulnerabili
 
 ---
 
-## 📁 **Project Structure**
+##  **Project Structure**
 
 ```
 CodeAlpha_SecureCodeReview/
@@ -63,20 +63,20 @@ CodeAlpha_SecureCodeReview/
 ├── setup.sh                          # Environment setup
 ├── vulnerable_apps/                   # Applications to analyze
 │   ├── python_webapp/                
-│   │   ├── app.py                    # 🚨 Vulnerable Flask app (13+ vulns)
+│   │   ├── app.py                    #  Vulnerable Flask app (13+ vulns)
 │   │   └── vulnerable_app.db         # Test database
 │   ├── javascript_examples/          # JS vulnerability samples
 │   └── php_samples/                  # PHP code examples
 ├── analysis_tools/                   # Security assessment tools
-│   ├── security_scanner.py          # 🔍 Comprehensive vulnerability scanner
+│   ├── security_scanner.py          #  Comprehensive vulnerability scanner
 │   ├── run_bandit.sh                # Automated Bandit analysis
 │   └── manual_review_checklist.md   # Expert review guidelines
-├── secure_examples/                  # 🛡️ Remediated secure code
+├── secure_examples/                  # 🛡Remediated secure code
 │   ├── secure_app.py                # Fixed version with security controls
 │   ├── before_after_comparison.md   # Side-by-side vulnerability fixes
 │   └── best_practices/              # Secure coding guidelines
 ├── reports/                          # Analysis results & documentation
-│   ├── vulnerability_assessment.html # 📊 Comprehensive security report
+│   ├── vulnerability_assessment.html #  Comprehensive security report
 │   ├── executive_summary.md         # High-level findings
 │   ├── technical_findings.md        # Detailed vulnerability analysis
 │   └── remediation_guide.md         # Implementation recommendations
@@ -88,9 +88,9 @@ CodeAlpha_SecureCodeReview/
 
 ---
 
-## 🚨 **Critical Vulnerabilities Identified**
+##  **Critical Vulnerabilities Identified**
 
-### **🔥 Critical Severity (Immediate Action Required)**
+### ** Critical Severity (Immediate Action Required)**
 
 | Vulnerability | Location | Impact | CVSS Score |
 |---------------|----------|---------|------------|
@@ -98,7 +98,7 @@ CodeAlpha_SecureCodeReview/
 | **Command Injection** | `app.py:198-205` | Remote code execution | **9.6** |
 | **Authentication Bypass** | `app.py:60-75` | Complete access control bypass | **9.1** |
 
-### **🔶 High Severity**
+### ** High Severity**
 
 | Vulnerability | Location | Impact | CVSS Score |
 |---------------|----------|---------|------------|
@@ -106,7 +106,7 @@ CodeAlpha_SecureCodeReview/
 | **Path Traversal** | `app.py:220-235` | File system access | **8.6** |
 | **Insecure Direct Object Reference** | `app.py:115-130` | Data exposure | **8.2** |
 
-### **🔸 Medium Severity**
+### ** Medium Severity**
 
 - **Hardcoded Credentials** (6 instances)
 - **Missing Security Headers** (10 headers)
@@ -115,7 +115,7 @@ CodeAlpha_SecureCodeReview/
 
 ---
 
-## 🛠️ **Security Analysis Tools Used**
+##  **Security Analysis Tools Used**
 
 ### **Automated Static Analysis**
 ```python
@@ -135,7 +135,7 @@ CodeAlpha_SecureCodeReview/
 
 ---
 
-## 🚀 **Quick Start & Usage**
+##  **Quick Start & Usage**
 
 ### **Prerequisites**
 ```bash
@@ -179,7 +179,7 @@ python secure_app.py
 
 ---
 
-## 📊 **Analysis Results Summary**
+##  **Analysis Results Summary**
 
 ### **Vulnerability Distribution**
 ```
@@ -206,7 +206,7 @@ Total Risk Score: 94.2/100 (Extremely High Risk)
 
 ---
 
-## 🛡️ **Security Remediation Implemented**
+##  **Security Remediation Implemented**
 
 ### **Code-Level Fixes**
 ```python
@@ -252,7 +252,7 @@ cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
 
 ---
 
-## 🎓 **Educational Value & Skills Demonstrated**
+##  **Educational Value & Skills Demonstrated**
 
 ### **Technical Competencies**
 ![Code Review](https://img.shields.io/badge/skill-code%20review-expert.svg)
@@ -274,7 +274,7 @@ cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
 
 ---
 
-## 📋 **Real-World Applications**
+##  **Real-World Applications**
 
 ### **Enterprise Security Use Cases**
 - **Security Code Reviews** for development teams
@@ -292,13 +292,13 @@ This project demonstrates skills directly applicable to:
 
 ---
 
-## 🚀 **Advanced Features**
+##  **Advanced Features**
 
 ### **Automated Security Pipeline**
 ```bash
 #!/bin/bash
 # security_pipeline.sh
-echo "🔍 Running comprehensive security analysis..."
+echo " Running comprehensive security analysis..."
 
 # Static analysis
 bandit -r vulnerable_apps/ -f json -o reports/bandit.json
@@ -310,7 +310,7 @@ python analysis_tools/security_scanner.py
 # Generate reports
 python tools/report_generator.py
 
-echo "✅ Security analysis complete!"
+echo " Security analysis complete!"
 ```
 
 ### **Interactive Security Training**
@@ -321,7 +321,7 @@ echo "✅ Security analysis complete!"
 
 ---
 
-## 📚 **Documentation & Reports**
+##  **Documentation & Reports**
 
 ### **Executive Summary**
 - **Risk Assessment Overview** for management
@@ -342,7 +342,7 @@ echo "✅ Security analysis complete!"
 
 ---
 
-## 🤝 **Contributing & Collaboration**
+##  **Contributing & Collaboration**
 
 This project demonstrates professional-level security assessment capabilities suitable for:
 - **Security Team Collaboration**
@@ -358,7 +358,7 @@ This project demonstrates professional-level security assessment capabilities su
 
 ---
 
-## 📄 **Professional Standards**
+##  **Professional Standards**
 
 ### **Methodology Compliance**
 - ✅ **OWASP Code Review Guide** methodology
@@ -374,14 +374,14 @@ This project demonstrates professional-level security assessment capabilities su
 
 ---
 
-## 🔗 **Links & Resources**
+##  **Links & Resources**
 
 - **CodeAlpha:** [www.codealpha.tech](https://www.codealpha.tech)
 - **OWASP Top 10:** [owasp.org/www-project-top-ten](https://owasp.org/www-project-top-ten/)
 - **Bandit Security:** [bandit.readthedocs.io](https://bandit.readthedocs.io/)
 - **Secure Coding:** [owasp.org/www-project-secure-coding-practices-quick-reference-guide](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)
 
-### 👨‍💻 **Author**
+###  **Author**
 
 **FarahMae**  
 CodeAlpha Cybersecurity Intern  
@@ -391,6 +391,6 @@ Security Assessment Specialist
 
 ---
 
-**⭐ If this project enhanced your understanding of secure coding practices, please star this repository!**
+** If this project enhanced your understanding of secure coding practices, please star this repository!**
 
 *Developed with 🔒 for professional cybersecurity education and industry application.*
